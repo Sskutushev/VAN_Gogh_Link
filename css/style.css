@@ -418,7 +418,7 @@ body {
     .recommended .section-title,
     .about .section-title {
         max-width: 360px;
-        font-size: 24px;
+        font-size: 20px;
     }
     .mobile-nav__list {
         max-width: 360px;
