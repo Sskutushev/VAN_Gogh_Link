@@ -1,4 +1,5 @@
 
+/* =================== VARIABLES =================== */
 :root {
     --primary-color: #EE753E;
     --dark-color: #272A33;
@@ -7,6 +8,7 @@
     --bg-color: #FFFFFF;
 }
 
+/* =================== BASE STYLES =================== */
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -27,7 +29,7 @@ body {
     margin: 0 0 30px 0;
 }
 
-/* Header */
+/* =================== HEADER =================== */
 .header {
     width: 100%;
     background-color: var(--white-color);
@@ -72,7 +74,7 @@ body {
 }
 
 .burger {
-    display: none; /* Hidden by default */
+    display: none; /* Hidden by default, shown on mobile */
     background: none;
     border: none;
     cursor: pointer;
@@ -80,7 +82,7 @@ body {
 }
 
 .mobile-nav {
-    display: none; /* Hidden by default */
+    display: none; /* Hidden by default, shown via JS */
     position: absolute;
     top: 80px;
     left: 0;
@@ -114,14 +116,14 @@ body {
     text-align: left;
 }
 
-/* Main Content */
+/* =================== MAIN CONTENT =================== */
 .main {
     padding-top: 80px;
 }
 
-/* Recommended Section */
+/* =================== RECOMMENDED SECTION =================== */
 
-/* Default styles are for desktop (1161px+) */
+/* Default layout for this section is for DESKTOP (1161px and wider) */
 .recommended__grid--desktop {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -129,14 +131,16 @@ body {
     gap: 30px;
 }
 
+/* Mobile-specific grid is hidden by default */
 .recommended__grid--mobile {
     display: none; /* Hidden by default */
 }
 
 .catalog-button-container--mobile {
-    display: none !important; /* Hidden by default */
+    display: none !important; /* Hidden by default, !important to override conflicting rules */
 }
 
+/* Generic product card styles, used by both desktop and mobile cards */
 .product-card {
     display: flex;
     height: 220px;
@@ -179,10 +183,13 @@ body {
     font-size: 16px;
 }
 
-/* --- Responsive --- */
+/* =================== RESPONSIVE STYLES =================== */
 
-/* Tablet 1 (1160px breakpoint) */
+/* ------ RECOMMENDED SECTION (RESPONSIVE) ------ */
+
+/* TABLET (screens <= 1160px) */
 @media (max-width: 1160px) {
+    /* On tablets, the desktop grid becomes a single centered column */
     .recommended__grid--desktop {
         display: flex;
         flex-direction: column;
@@ -193,33 +200,36 @@ body {
     }
     .recommended__grid--desktop .product-card {
         width: 100%;
-        max-width: 768px; /* Ensure it doesn't exceed container */
+        max-width: 768px;
     }
 }
 
-/* Tablet 2 (768px breakpoint) */
+/* SMALL TABLET (screens <= 768px) */
 @media (max-width: 768px) {
+    /* The single column container becomes narrower */
     .recommended__grid--desktop {
         width: 576px;
     }
 }
 
-/* Mobile (575px breakpoint) */
+/* MOBILE (screens <= 575px) */
 @media (max-width: 575px) {
+    /* Hide the desktop grid and its button */
     .recommended__grid--desktop,
     .catalog-button-container--desktop {
-        display: none; /* Hide desktop versions */
+        display: none;
     }
 
+    /* Show the mobile-specific grid and style it as a 2x2 grid */
     .recommended__grid--mobile {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         width: 360px;
-        /* height: 876px; /* Height should be auto based on content */
         margin: 0 auto;
         gap: 20px;
     }
 
+    /* Style the cards for the mobile view (vertical layout) */
     .recommended__grid--mobile .product-card {
         flex-direction: column;
         width: 170px;
@@ -231,13 +241,13 @@ body {
         height: 170px;
     }
 
+    /* Mobile card content styling */
     .recommended__grid--mobile .product-card__content {
         padding: 10px;
         align-items: flex-start; /* Left-align text */
     }
 
     .recommended__grid--mobile .product-card__title {
-        /* text-align: center; */ /* Removed */
         font-family: 'Open Sans', sans-serif;
         font-size: 16px;
         font-weight: 400;
@@ -254,17 +264,13 @@ body {
     }
 
     .recommended__grid--mobile .btn {
-        margin-bottom: 0; /* Remove default margin if any */
-        /* align-self: center; */ /* Removed for left-alignment */
+        margin-bottom: 0;
+        /* Button is left-aligned by parent's align-items: flex-start */
     }
 
-    .recommended__grid--mobile .btn,
-    .about__footer .btn {
-        width: 150px;
-    }
-
+    /* Show and style the mobile-specific catalog button */
     .catalog-button-container--mobile {
-        display: flex; /* Show mobile button */
+        display: flex !important; /* Show mobile button */
         justify-content: center;
         margin-top: 20px;
     }
@@ -276,8 +282,10 @@ body {
 }
 
 
-/* General Responsive Rules for other sections */
+/* ------ GENERAL RESPONSIVE RULES ------ */
+
 @media (max-width: 1160px) {
+    /* Hide desktop nav and show burger menu on tablets and mobile */
     .nav {
         display: none;
     }
@@ -289,9 +297,9 @@ body {
     }
 }
 
-/* === Button Styles (Complete Overhaul) === */
+/* =================== BUTTONS =================== */
 
-/* Base button style for all buttons */
+/* Base style for all buttons */
 .btn {
     display: flex;
     align-items: center;
@@ -311,19 +319,19 @@ body {
     background-color: var(--primary-color);
 }
 
-/* Default button (e.g., "Подробнее") */
+/* "Подробнее" buttons */
 .product-card__content .btn,
 .about__footer .btn {
     width: 159px;
     align-self: flex-start; /* Left alignment */
 }
 
-/* Large button (e.g., "Перейти в каталог") */
+/* "Перейти в каталог" button */
 .btn--large {
     width: 223px;
 }
 
-/* Center-align the catalog buttons via their containers */
+/* Containers for the catalog buttons */
 .catalog-button-container,
 .catalog-button-container--desktop {
     display: flex;
@@ -336,26 +344,25 @@ body {
     align-items: flex-end;
 }
 
-/* === End of Button Styles === */
-
 .btn:disabled {
     background-color: var(--dark-color);
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-/* About Section */
+/* =================== ABOUT SECTION =================== */
 .about {
-    padding-top: 0; /* Removed old padding */
+    padding-top: 0;
 }
 
 footer {
     padding-bottom: 50px;
 }
 
+/* Desktop layout: horizontal */
 .about__content {
     display: flex;
-    flex-direction: row; /* Explicitly set for desktop */
+    flex-direction: row;
     gap: 30px;
 }
 
@@ -431,6 +438,8 @@ footer {
     margin-top: auto;
 }
 
+/* ------ ABOUT SECTION & OTHERS (RESPONSIVE) ------ */
+
 @media (max-width: 576px) {
     .header__container {
         max-width: 364px;
@@ -441,22 +450,24 @@ footer {
         padding-top: 50px;
     }
 
-    /* Mobile layout for About section */
+    /* Mobile layout for About section: vertical */
     .about__content {
         flex-direction: column;
         align-items: center;
         gap: 20px;
     }
 
+    /* On mobile, the gallery keeps its grid structure but becomes narrower */
     .about__gallery {
-        width: 360px; /* Or 100% */
+        width: 360px;
         gap: 20px;
     }
 
     .about__description {
-        width: 360px; /* Or 100% */
+        width: 360px;
     }
 
+    /* Adjust section titles for mobile */
     .recommended .section-title,
     .about .section-title {
         max-width: 360px;

@@ -15,11 +15,14 @@
 
 <body>
 
+    <!-- =================== HEADER =================== -->
     <header class="header">
         <div class="container header__container">
             <a href="#" class="logo">
                 <img src="assets/icons/logo.svg" alt="SPARTSPRO Logo">
             </a>
+
+            <!-- Desktop Navigation -->
             <nav class="nav" id="desktop-nav">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#" class="nav__link">ГЛАВНАЯ</a></li>
@@ -29,10 +32,14 @@
                     <li class="nav__item"><a href="#" class="nav__link">КОНТАКТЫ</a></li>
                 </ul>
             </nav>
+
+            <!-- Mobile Burger Menu Button -->
             <button class="burger" id="burger-btn">
                 <img src="assets/icons/Frame 372.svg" alt="Menu" id="burger-icon">
             </button>
         </div>
+
+        <!-- Mobile Navigation Panel (hidden by default) -->
         <div class="mobile-nav" id="mobile-nav">
             <ul class="mobile-nav__list">
                 <li class="mobile-nav__item"><a href="#" class="mobile-nav__link">ГЛАВНАЯ</a></li>
@@ -45,11 +52,13 @@
     </header>
 
     <main class="main">
+
+        <!-- =================== RECOMMENDED EQUIPMENT SECTION =================== -->
         <section class="recommended">
             <div class="container">
                 <h2 class="section-title">РЕКОМЕНДУЕМОЕ ОБОРУДОВАНИЕ</h2>
 
-                <!-- Desktop/Tablet Grid -->
+                <!-- This grid is visible on DESKTOP and TABLET views ONLY -->
                 <div class="recommended__grid recommended__grid--desktop">
                     <!-- Card 1 -->
                     <div class="product-card card-1">
@@ -128,7 +137,7 @@
                     </div>
                 </div>
 
-                <!-- Mobile Grid -->
+                <!-- This grid is visible on MOBILE views ONLY (<= 575px) -->
                 <div class="recommended__grid recommended__grid--mobile">
                     <!-- Card 1 -->
                     <div class="product-card card-1">
@@ -182,6 +191,7 @@
                     </div>
                 </div>
 
+                <!-- This button is visible on MOBILE views ONLY -->
                 <div class="catalog-button-container catalog-button-container--mobile">
                     <button class="btn btn--large">Перейти в каталог</button>
                 </div>
@@ -189,16 +199,19 @@
             </div>
         </section>
 
+        <!-- This button is visible on DESKTOP and TABLET views ONLY -->
         <div class="catalog-button-container catalog-button-container--desktop">
             <div class="container">
                 <button class="btn btn--large">Перейти в каталог</button>
             </div>
         </div>
 
+        <!-- =================== ABOUT SECTION =================== -->
         <section class="about">
             <div class="container">
                 <h2 class="section-title">О КОМПАНИИ</h2>
                 <div class="about__content">
+                    <!-- Image Gallery -->
                     <div class="about__gallery">
                         <div class="about__gallery-item about__gallery-item--large">
                             <img src="assets/images/image1.png" alt="About image 1">
@@ -210,6 +223,7 @@
                             <img src="assets/images/image3.png" alt="About image 3">
                         </div>
                     </div>
+                    <!-- Text Description -->
                     <div class="about__description">
                         <p class="about__lead">Компания «SPARTSPRO» специализируется на поставках лифтового
                             оборудования, комплектующих и запчастей для лифтов и эскалаторов ведущих мировых и
@@ -241,6 +255,7 @@
             </section>
     </main>
 
+    <!-- =================== FOOTER =================== -->
     <footer>
         <!-- Empty footer for now -->
     </footer>
