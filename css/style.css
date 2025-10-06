@@ -120,16 +120,25 @@ body {
 }
 
 /* Recommended Section */
-.recommended__grid {
-    display: flex;
-    flex-wrap: wrap;
+
+/* Default styles are for desktop (1161px+) */
+.recommended__grid--desktop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
     gap: 30px;
+}
+
+.recommended__grid--mobile {
+    display: none; /* Hidden by default */
+}
+
+.catalog-button-container--mobile {
+    display: none !important; /* Hidden by default */
 }
 
 .product-card {
     display: flex;
-    width: calc(50% - 15px);
-    max-width: 705px;
     height: 220px;
     background-color: var(--white-color);
     border: 1px solid #E0E6ED;
@@ -137,13 +146,6 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
-
-.card-1 { order: 1; }
-.card-4 { order: 2; }
-.card-2 { order: 3; }
-.card-5 { order: 4; }
-.card-3 { order: 5; }
-.card-6 { order: 6; }
 
 .product-card__image {
     width: 220px;
@@ -177,26 +179,164 @@ body {
     font-size: 16px;
 }
 
+/* --- Responsive --- */
+
+/* Tablet 1 (1160px breakpoint) */
+@media (max-width: 1160px) {
+    .recommended__grid--desktop {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 768px;
+        margin: 0 auto;
+        gap: 30px;
+    }
+    .recommended__grid--desktop .product-card {
+        width: 100%;
+        max-width: 768px; /* Ensure it doesn't exceed container */
+    }
+}
+
+/* Tablet 2 (768px breakpoint) */
+@media (max-width: 768px) {
+    .recommended__grid--desktop {
+        width: 576px;
+    }
+}
+
+/* Mobile (575px breakpoint) */
+@media (max-width: 575px) {
+    .recommended__grid--desktop,
+    .catalog-button-container--desktop {
+        display: none; /* Hide desktop versions */
+    }
+
+    .recommended__grid--mobile {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 360px;
+        /* height: 876px; /* Height should be auto based on content */
+        margin: 0 auto;
+        gap: 20px;
+    }
+
+    .recommended__grid--mobile .product-card {
+        flex-direction: column;
+        width: 170px;
+        height: 373px;
+    }
+
+    .recommended__grid--mobile .product-card__image {
+        width: 170px;
+        height: 170px;
+    }
+
+    .recommended__grid--mobile .product-card__content {
+        padding: 10px;
+        align-items: flex-start; /* Left-align text */
+    }
+
+    .recommended__grid--mobile .product-card__title {
+        /* text-align: center; */ /* Removed */
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .recommended__grid--mobile .product-card__availability {
+        margin-top: auto; /* Push to bottom */
+        margin-bottom: 10px;
+    }
+
+    .recommended__grid--mobile .product-card__availability span {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+    }
+
+    .recommended__grid--mobile .btn {
+        margin-bottom: 0; /* Remove default margin if any */
+        /* align-self: center; */ /* Removed for left-alignment */
+    }
+
+    .recommended__grid--mobile .btn,
+    .about__footer .btn {
+        width: 150px;
+    }
+
+    .catalog-button-container--mobile {
+        display: flex; /* Show mobile button */
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .catalog-button-container--mobile .btn--large {
+        width: 223px;
+        height: 46px;
+    }
+}
+
+
+/* General Responsive Rules for other sections */
+@media (max-width: 1160px) {
+    .nav {
+        display: none;
+    }
+    .burger {
+        display: block;
+    }
+    .mobile-nav__list {
+        max-width: 768px;
+    }
+}
+
+/* === Button Styles (Complete Overhaul) === */
+
+/* Base button style for all buttons */
 .btn {
-    background-color: var(--dark-color);
-    color: var(--white-color);
-    border: none;
-    border-radius: 8px;
-    padding: 0 30px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    align-self: flex-start;
-    height: 46px;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none; /* For potential <a> tags styled as buttons */
+    height: 46px;
+    border-radius: 8px;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    border: none;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
     background-color: var(--primary-color);
 }
+
+/* Default button (e.g., "Подробнее") */
+.product-card__content .btn,
+.about__footer .btn {
+    width: 159px;
+    align-self: flex-start; /* Left alignment */
+}
+
+/* Large button (e.g., "Перейти в каталог") */
+.btn--large {
+    width: 223px;
+}
+
+/* Center-align the catalog buttons via their containers */
+.catalog-button-container,
+.catalog-button-container--desktop {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.catalog-button-container--desktop {
+    height: 80px;
+    align-items: flex-end;
+}
+
+/* === End of Button Styles === */
 
 .btn:disabled {
     background-color: var(--dark-color);
@@ -204,21 +344,18 @@ body {
     cursor: not-allowed;
 }
 
-.catalog-button-container {
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
 /* About Section */
 .about {
     padding-top: 0; /* Removed old padding */
 }
 
+footer {
+    padding-bottom: 50px;
+}
+
 .about__content {
     display: flex;
+    flex-direction: row; /* Explicitly set for desktop */
     gap: 30px;
 }
 
@@ -294,37 +431,6 @@ body {
     margin-top: auto;
 }
 
-/* --- Responsive --- */
-
-@media (max-width: 1160px) {
-    .nav {
-        display: none;
-    }
-    .burger {
-        display: block;
-    }
-    .mobile-nav__list {
-        max-width: 576px;
-    }
-}
-
-@media (max-width: 874px) {
-    .product-card {
-        width: 100%;
-        max-width: 565px;
-    }
-    .recommended__grid {
-        gap: 20px;
-        justify-content: center;
-    }
-    .recommended .section-title,
-    .about .section-title {
-        max-width: 565px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
 @media (max-width: 576px) {
     .header__container {
         max-width: 364px;
@@ -334,85 +440,21 @@ body {
     .main {
         padding-top: 50px;
     }
-    .recommended__grid {
-        justify-content: center;
-        column-gap: 20px;
-        row-gap: 20px;
-    }
-    .product-card {
-        width: 170px;
-        height: 373px;
-        flex-direction: column;
-    }
-    .product-card__image {
-        width: 100%;
-        height: 170px;
-    }
-    .product-card__content {
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-    }
-    .product-card__title {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        flex-grow: 1;
-    }
-    .product-card__availability span {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 14px;
-    }
-    .btn {
-        width: 150px;
-        height: 43px;
-    }
-    .card-1 { order: 1; }
-    .card-6 { order: 2; }
-    .card-2 { order: 3; }
-    .card-5 { order: 4; }
-    .card-3 { display: none; }
-    .card-4 { display: none; }
 
-    .catalog-button-container {
-        margin-top: 20px;
-    }
-
-    .catalog-button-container .btn--large {
-        width: 223px;
-        height: 46px;
-    }
-
-    .about {
-        padding-top: 50px;
-    }
-
+    /* Mobile layout for About section */
     .about__content {
         flex-direction: column;
         align-items: center;
+        gap: 20px;
     }
 
     .about__gallery {
-        width: 360px;
-    }
-
-    .about__gallery-item--large {
-        height: 103.15px;
-    }
-
-    .about__gallery-item--small-1 {
-        width: 172.09px;
-        height: 82.72px;
-    }
-
-    .about__gallery-item--small-2 {
-        width: 171.06px;
-        height: 82.72px;
+        width: 360px; /* Or 100% */
+        gap: 20px;
     }
 
     .about__description {
-        width: 360px;
+        width: 360px; /* Or 100% */
     }
 
     .recommended .section-title,
