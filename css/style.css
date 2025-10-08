@@ -183,53 +183,257 @@ body {
     font-size: 16px;
 }
 
+/* =================== 1440px STYLES (1440px - 1161px) =================== */
+@media (max-width: 1440px) {
+    .container {
+        max-width: 1160px;
+        padding: 0;
+    }
+
+    .catalog-button-container--desktop {
+        margin-top: 30px;
+        height: auto;
+        align-items: center;
+    }
+
+    .about {
+        padding-top: 80px;
+    }
+
+    .about__gallery {
+        width: 565px;
+    }
+
+    .about__description {
+        width: 565px;
+    }
+
+    .about__gallery-item--large {
+        height: 162px;
+    }
+
+    .about__gallery-item--small-1,
+    .about__gallery-item--small-2 {
+        height: 130px;
+    }
+
+    .about__lead {
+        margin: 0 0 30px 0;
+    }
+
+    .about__features {
+        margin: 0 0 30px 0;
+    }
+
+    .about__footer {
+        margin-top: 0;
+    }
+}
+
 /* =================== RESPONSIVE STYLES =================== */
 
-/* ------ RECOMMENDED SECTION (RESPONSIVE) ------ */
-
-/* TABLET (screens <= 1160px) */
+/* ------ GENERAL (1160px - 769px) ------ */
 @media (max-width: 1160px) {
-    /* On tablets, the desktop grid becomes a single centered column */
+    .container {
+        max-width: 768px;
+    }
+    .main {
+        padding-top: 50px;
+    }
+    .section-title {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    /* --- HEADER --- */
+    .nav {
+        display: none;
+    }
+    .burger {
+        display: block;
+    }
+    .header__container {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+    .mobile-nav__list {
+        max-width: 768px;
+    }
+
+    /* --- RECOMMENDED SECTION --- */
     .recommended__grid--desktop {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        width: 768px;
-        margin: 0 auto;
+        width: 100%;
         gap: 30px;
     }
     .recommended__grid--desktop .product-card {
         width: 100%;
         max-width: 768px;
     }
-}
+    .product-card__content {
+        padding: 31px 20px 31px 30px;
+        justify-content: center;
+    }
+    .product-card__title {
+        flex-grow: 0;
+        margin-bottom: 30px;
+    }
+    .product-card__availability {
+        margin-bottom: 10px;
+    }
+    .catalog-button-container--desktop {
+        margin-top: 30px;
+        height: 60px; /* Raised by 20px from 80px */
+    }
 
-/* SMALL TABLET (screens <= 768px) */
-@media (max-width: 768px) {
-    /* The single column container becomes narrower */
-    .recommended__grid--desktop {
-        width: 576px;
+    /* --- ABOUT SECTION --- */
+    .about {
+        padding-top: 50px;
+    }
+    .about__content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    .about__gallery,
+    .about__description {
+        flex-basis: 100%;
+        width: 100%;
+        max-width: 768px;
+    }
+    .about__gallery-item--large {
+        height: 220px;
+    }
+    .about__gallery-item--small-1,
+    .about__gallery-item--small-2 {
+        height: 176px;
+    }
+    .about__lead {
+        margin-bottom: 20px;
+    }
+    .about__features {
+        margin-bottom: 20px;
+    }
+    .about__description p:not(.about__lead) {
+        margin-bottom: 30px;
+    }
+    .about__footer {
+        margin-top: 0;
     }
 }
 
-/* MOBILE (screens <= 575px) */
-@media (max-width: 575px) {
+/* ------ SMALL TABLET (768px - 577px) ------ */
+@media (max-width: 768px) {
+    .container {
+        max-width: 576px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .header__container,
+    .recommended .container,
+    .about .container {
+        max-width: 576px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+    .mobile-nav__list {
+        max-width: 576px;
+    }
+
+    .recommended__grid--desktop {
+        width: 100%;
+        max-width: 576px;
+    }
+
+    .about__gallery {
+        gap: 20px;
+    }
+    .about__gallery-item--large {
+        height: 165px;
+    }
+    .about__gallery-item--small-1,
+    .about__gallery-item--small-2 {
+        height: 132px;
+    }
+}
+
+/* ------ MOBILE (<= 576px) ------ */
+@media (max-width: 576px) {
+    .about--desktop {
+        display: none !important;
+    }
+    .about--mobile {
+        display: block !important;
+    }
+
+    /* --- GENERAL --- */
+    .container {
+        max-width: 360px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .header {
+        display: flex;
+        justify-content: center;
+    }
+    .header__container {
+        width: 364px;
+        height: 79.64px;
+        margin: 0;
+        padding: 0;
+    }
+    .main {
+        padding-top: 50px;
+    }
+    .mobile-nav__list {
+        max-width: 360px;
+    }
+
+    /* --- RECOMMENDED SECTION --- */
+    .recommended {
+        height: 876px;
+        display: flex;
+        justify-content: center;
+    }
+    .recommended .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .recommended .section-title {
+        width: 360px;
+        height: 24px;
+        font-size: 20px;
+        margin: 0 0 20px 0;
+    }
     /* Hide the desktop grid and its button */
-    .recommended__grid--desktop,
-    .catalog-button-container--desktop {
+    .recommended__grid--desktop {
         display: none;
+    }
+    .catalog-button-container--desktop {
+        display: none !important; /* Force hide */
+        height: 0;
+        margin: 0;
+        padding: 0;
     }
 
     /* Show the mobile-specific grid and style it as a 2x2 grid */
     .recommended__grid--mobile {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        width: 360px;
-        margin: 0 auto;
+        grid-template-columns: repeat(2, 170px);
+        justify-content: center;
         gap: 20px;
+        height: 766px;
+        width: 360px;
     }
 
-    /* Style the cards for the mobile view (vertical layout) */
     .recommended__grid--mobile .product-card {
         flex-direction: column;
         width: 170px;
@@ -241,21 +445,24 @@ body {
         height: 170px;
     }
 
-    /* Mobile card content styling */
     .recommended__grid--mobile .product-card__content {
         padding: 10px;
-        align-items: flex-start; /* Left-align text */
+        align-items: flex-start; /* Align items to the left */
+        text-align: left;       /* Align text to the left */
     }
 
     .recommended__grid--mobile .product-card__title {
         font-family: 'Open Sans', sans-serif;
         font-size: 16px;
         font-weight: 400;
+        width: 150px;
+        height: 100px;
+        margin: 0 0 5px 0;
+        line-height: 1.2;
     }
 
     .recommended__grid--mobile .product-card__availability {
-        margin-top: auto; /* Push to bottom */
-        margin-bottom: 10px;
+        margin: 0 0 10px 0;
     }
 
     .recommended__grid--mobile .product-card__availability span {
@@ -264,13 +471,13 @@ body {
     }
 
     .recommended__grid--mobile .btn {
-        margin-bottom: 0;
-        /* Button is left-aligned by parent's align-items: flex-start */
+        width: 150px;
+        height: 43px;
+        margin: 0 0 0 -5px;
     }
 
-    /* Show and style the mobile-specific catalog button */
     .catalog-button-container--mobile {
-        display: flex !important; /* Show mobile button */
+        display: flex !important;
         justify-content: center;
         margin-top: 20px;
     }
@@ -279,21 +486,93 @@ body {
         width: 223px;
         height: 46px;
     }
+
+    /* --- ABOUT SECTION --- */
+    .about--desktop {
+        display: none; /* Hide desktop version */
+    }
+    .about--mobile {
+        display: block; /* Show mobile version */
+        margin-top: 50px;
+        height: 843.19px;
+    }
+    .about--mobile .container {
+        height: 100%;
+    }
+    .about--mobile .about__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .about--mobile .container {
+        max-width: 360px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
+    .about--mobile .section-title {
+        width: 360px;
+        height: 24px;
+        font-size: 20px;
+        margin: 0 0 20px 0;
+        text-align: left;
+    }
+    .about--mobile .about__gallery {
+        display: grid;
+        grid-template-columns: 172.09px 171.06px;
+        gap: 15px;
+        justify-content: center;
+        width: 360px;
+        margin-bottom: 15px;
+    }
+    .about--mobile .about__gallery-item--large {
+        grid-column: 1 / -1; /* Span both columns */
+        height: 103.15px;
+    }
+    .about--mobile .about__gallery-item--small-1 {
+        width: 172.09px;
+        height: 82.72px;
+    }
+    .about--mobile .about__gallery-item--small-2 {
+        width: 171.06px;
+        height: 82.72px;
+    }
+    .about--mobile .about__description {
+        width: 360px;
+        height: 578px;
+        display: flex;
+        flex-direction: column;
+    }
+    .about--mobile .about__lead {
+        height: 144px;
+        font-weight: 700; /* Ensure bold */
+        margin-bottom: 20px;
+    }
+    .about--mobile .about__features {
+        margin-bottom: 20px;
+    }
+    .about--mobile .about__description p:not(.about__lead) {
+        height: 96px;
+        margin-bottom: 15px;
+    }
+    .about--mobile .about__footer {
+        /* margin-top: auto; REMOVED to allow natural flow */
+    }
+    .about--mobile .about__footer .btn {
+        align-self: flex-start; /* Align button to the left */
+    }
 }
 
-
-/* ------ GENERAL RESPONSIVE RULES ------ */
-
-@media (max-width: 1160px) {
-    /* Hide desktop nav and show burger menu on tablets and mobile */
-    .nav {
-        display: none;
+/* ------ SMALL MOBILE (<= 390px) ------ */
+@media (max-width: 390px) {
+    .header__container {
+        max-width: 100%;
     }
-    .burger {
-        display: block;
+    .about__gallery,
+    .about__description {
+        width: 100%;
     }
     .mobile-nav__list {
-        max-width: 768px;
+        max-width: 100%;
     }
 }
 
@@ -351,6 +630,10 @@ body {
 }
 
 /* =================== ABOUT SECTION =================== */
+.about--mobile {
+    display: none; /* Hide mobile version by default */
+}
+
 .about {
     padding-top: 0;
 }
@@ -436,59 +719,4 @@ footer {
 
 .about__footer {
     margin-top: auto;
-}
-
-/* ------ ABOUT SECTION & OTHERS (RESPONSIVE) ------ */
-
-@media (max-width: 576px) {
-    .header__container {
-        max-width: 364px;
-        height: 79.64px;
-        margin: 0 auto;
-    }
-    .main {
-        padding-top: 50px;
-    }
-
-    /* Mobile layout for About section: vertical */
-    .about__content {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    /* On mobile, the gallery keeps its grid structure but becomes narrower */
-    .about__gallery {
-        width: 360px;
-        gap: 20px;
-    }
-
-    .about__description {
-        width: 360px;
-    }
-
-    /* Adjust section titles for mobile */
-    .recommended .section-title,
-    .about .section-title {
-        max-width: 360px;
-        font-size: 20px;
-    }
-    .mobile-nav__list {
-        max-width: 360px;
-    }
-}
-
-@media (max-width: 390px) {
-    .header__container {
-        max-width: 100%;
-    }
-    .about__gallery {
-        width: 100%;
-    }
-    .about__description {
-        width: 100%;
-    }
-    .mobile-nav__list {
-        max-width: 100%;
-    }
 }

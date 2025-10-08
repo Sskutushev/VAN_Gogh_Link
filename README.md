@@ -59,3 +59,14 @@
 1.  Клонируйте репозиторий.
 2.  Откройте файл `index.html` в любом современном браузере.
 3.  Используйте инструменты разработчика (F12) для переключения между разными разрешениями экрана и проверки адаптивности.
+
+## Recent Changes (08.10.2025)
+
+*   **Full Mobile & Tablet Responsiveness:** Implemented a comprehensive responsive layout for various screen sizes.
+*   **Mobile Layout (<= 576px):**
+    *   Created a separate, mobile-specific header, correctly centered with a fixed width.
+    *   Re-styled the "Recommended Equipment" section to a 2x2 grid with vertical product cards.
+    *   Completely rebuilt the "About Company" section with a mobile-first layout for the image gallery and text content.
+    *   Addressed and fixed numerous layout issues, including container centering, element alignment, and vertical/horizontal spacing to precisely match the design specifications.
+*   **Tablet Layout (577px - 1160px):**
+    *   Adjusted the vertical position of the "Go to catalog" button for better visual alignment.
